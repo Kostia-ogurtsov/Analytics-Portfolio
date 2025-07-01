@@ -3,6 +3,7 @@ import requests
 from bs4 import BeautifulSoup
 import numpy as np
 import re
+import random
 
 dict_rayons = {}
 
@@ -75,7 +76,7 @@ for rayon in rayons.keys():
     print(f'Цены в {rayon}: {prices}')
     dict_rayons[rayon] = np.median(np.array(prices))
     print(dict_rayons[rayon], end='\n')
-    time.sleep(60)  # не дает нормально парсить из-за ограничений на количество запросов по времени
+    time.sleep(40 + random.uniform(0, 40))  # не дает нормально парсить из-за ограничений на количество запросов по времени
 
 print('\n')
 print(dict_rayons)
